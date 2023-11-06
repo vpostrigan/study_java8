@@ -1,0 +1,42 @@
+
+3. 3. Functional Programming in Java 8
+1. Default Method Conflict
+2. Iterating Over A Collection
+3. Logging with a Supplier
+4. Closure Composition
+5. Using an Extracted Method for Exception Handling
+6. Checked Exceptions And Lambdas
+7. Using a Generic Exception Wrapper
+
+4. 4. Streams
+1. Creating Streams
+2. Boxed Streams
+3. Reduction Operations Using Reduce
+4. Check Sorting Using Reduce
+5. Debugging Streams with peek1. Problem
+6. Converting Strings to Streams and Back
+7. Counting Elements
+8. Summary Statistics
+9. Finding The First Element In A Stream
+10. Using anyMatch, allMatch, and noneMatch
+11. Stream flatMap vs map
+12. Concatenating Streams
+13. Lazy Streams
+
+5. 5. Comparators and Collectors
+1. Sorting Using A Comparator
+2. Converting a Stream into a Collection
+3. Adding a Linear Collection to a Map
+4. Sorting Maps
+5. Partitioning and Grouping
+6. Downstream Collectors
+7. Finding Max and Min Values
+8. Creating Immutable Collections
+9. Implementing the Collector Interface
+
+6. 6. The Optional Type
+1. Creating An Optional
+2. Retrieving Values From An Optional
+3. Optional in Getters and Setters
+4. Optional flatMap vs map
+5. Mapping Optionals

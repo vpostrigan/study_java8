@@ -1,0 +1,7 @@
+PS D:\workspace_study\study\Java8\advanced_java2_deitel\target\classes> start "C:\Program Files\Java\jdk1.8.0_amazon_corretto\bin\rmiregistry"
+
+PS D:\workspace_study\study\Java8\advanced_java2_deitel\src\main\java\advanced_java2_deitel\chapter13_rmi\messenger> "C:\Program Files\Java\jdk1.8.0_amazon_corretto\bin\rmid.exe" -J -Djava.security.policy=rmid.policy
+
+java -Djava.security.policy=administrator.policy -Djava.rmi.server.codebase=http://localhost:8088 ChatServerAdministrator start
+
+java -Djava.security.policy=client.policy DeitelMessenger

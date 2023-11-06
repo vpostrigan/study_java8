@@ -1,0 +1,11 @@
+// Fig. 26.1: systemclock.idl
+// IDL definition of SystemClock
+
+module clock {
+
+   // The definition of the CORBA-enabled service
+   interface SystemClock {
+      long long currentTimeMillis();
+   };
+
+};

@@ -1,0 +1,8 @@
+
+// Policy file that grants file write permission
+// only to file "authorized.txt"
+
+grant {
+   permission java.io.FilePermission
+     "authorized.txt", "write";
+};

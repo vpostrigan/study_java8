@@ -1,0 +1,35 @@
+<!--  a tag library descriptor  -->
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>advjhtp1</shortname>
+    <info> A simple tab library for the examples </info>
+    <!--  A simple tag that outputs content  -->
+    <tag>
+        <name>welcome</name>
+        <tagclass> com.deitel.advjhtp1.jsp.taglibrary.WelcomeTagHandler </tagclass>
+        <bodycontent>empty</bodycontent>
+        <info> Inserts content welcoming user to tag libraries </info>
+    </tag>
+    <!--  A tag with an attribute  -->
+    <tag>
+        <name>welcome2</name>
+        <tagclass> com.deitel.advjhtp1.jsp.taglibrary.Welcome2TagHandler </tagclass>
+        <bodycontent>empty</bodycontent>
+        <info> Inserts content welcoming user to tag libraries. Uses attribute "name" to insert the user's name. </info>
+        <attribute>
+            <name>firstName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--  A tag that iterates over an ArrayList of GuestBean  -->
+    <!--  objects, so they can be output in a JSP             -->
+    <tag>
+        <name>guestlist</name>
+        <tagclass> com.deitel.advjhtp1.jsp.taglibrary.GuestBookTag </tagclass>
+        <teiclass> com.deitel.advjhtp1.jsp.taglibrary.GuestBookTagExtraInfo </teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info> Iterates over a list of GuestBean objects </info>
+    </tag>
+</taglib>
