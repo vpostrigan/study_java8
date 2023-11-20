@@ -5,6 +5,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ * 1.6. Статические методы в интерфейсах
+ */
 public class StaticMethodsInInterfaces_5 {
 
     public static void main(String[] args) {
@@ -12,8 +15,7 @@ public class StaticMethodsInInterfaces_5 {
         // Это привело к созданию служебных классов – класс java.util.Collections
         // Другой пример – класс java.nio.file.Paths из пакета NIO
 
-        // эти методы нельзя переопределить
-        // обращаться к методу, указывая имя интерфейса.
+        // эти методы нельзя переопределить обращаться к методу, указывая имя интерфейса.
         // Классы не обязаны реализовывать интерфейс, чтобы воспользоваться его статическими методами.
 
 

@@ -10,7 +10,7 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /*
-уществуют следующие методы создания потоков:
+Существуют следующие методы создания потоков:
 + Stream.of(T... values) и Stream.of(T t);
 + Arrays.stream(T[] array) с перегруженными вариантами для int[], double[] и long[];
 + Stream.iterate(T seed, UnaryOperator<T> f);
@@ -45,6 +45,11 @@ public class CreatingStreams_1 {
                 .limit(10)
                 .collect(Collectors.toList());
         System.out.println(nums); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+        List<Long> nums2 = Stream.iterate(1L, n -> n + 1L)
+                .limit(10)
+                .collect(Collectors.toList());
+        System.out.println(nums2); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
         Stream.iterate(LocalDate.now(), ld -> ld.plusDays(1))
                 .limit(10)

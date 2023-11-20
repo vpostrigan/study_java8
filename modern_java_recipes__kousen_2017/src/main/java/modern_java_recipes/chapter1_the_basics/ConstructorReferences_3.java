@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+ * 1.3. Ссылки на Конструкторы
+ */
 public class ConstructorReferences_3 {
 
     public static void main(String[] args) {
@@ -41,7 +44,7 @@ public class ConstructorReferences_3 {
         // Копирующий конструктор позволяет разорвать эту связь.
 
         people = Stream.of(before)
-                // Person(Person p)
+                // new Person(Person p)
                 .map(Person::new)
                 .collect(Collectors.toList());
         after = people.get(0);
