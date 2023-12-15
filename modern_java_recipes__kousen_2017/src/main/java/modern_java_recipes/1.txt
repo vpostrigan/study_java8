@@ -13,7 +13,7 @@
 2. Boxed Streams
 3. Reduction Operations Using Reduce
 4. Check Sorting Using Reduce
-5. Debugging Streams with peek1. Problem
+5. Debugging Streams with peek.
 6. Converting Strings to Streams and Back
 7. Counting Elements
 8. Summary Statistics
