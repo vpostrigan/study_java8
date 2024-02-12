@@ -27,4 +27,9 @@ public class Unicode {
         return result;
     }
 
+    // Generating Messages
+    // The formatting API supports supplementary characters. The following example is a simple way to generate a message.
+    // recommended
+    // System.out.printf("Character %c is invalid.%n", codePoint);
+
 }
