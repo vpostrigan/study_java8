@@ -88,7 +88,7 @@ public class ShapedDigits extends Applet {
         String[] titles;
 
         private static final String text =
-            "-123 (Latin) 456.00 (Arabic) \u0641\u0642\u0643 -789 (Thai) \u0e01\u0e33 01.23";
+                "-123 (Latin) 456.00 (Arabic) \u0641\u0642\u0643 -789 (Thai) \u0e01\u0e33 01.23";
 
         void dumpChars(char[] chars) {
             for (int i = 0; i < chars.length; ++i) {
@@ -149,17 +149,18 @@ public class ShapedDigits extends Applet {
             iter = new AttributedString(text, map).getIterator();
             layouts[4][1] = new LineBreakMeasurer(iter, frc).nextLayout(Float.MAX_VALUE);
 
-            titles = new String[] {
-                "Latin - all digits are Latin (ASCII)",
-                "Arabic - all digits are Arabic",
-                "Contextual Arabic Default Arabic - only leading digits and digits following Arabic text are Arabic",
-                "Contextual Arabic Default Latin - only digits following Arabic text are Arabic",
-                "Contextual All Default Latin - leading digits are Latin (ASCII), others correspond to context"
-             };
+            titles = new String[]{
+                    "Latin - all digits are Latin (ASCII)",
+                    "Arabic - all digits are Arabic",
+                    "Contextual Arabic Default Arabic - only leading digits and digits following Arabic text are Arabic",
+                    "Contextual Arabic Default Latin - only digits following Arabic text are Arabic",
+                    "Contextual All Default Latin - leading digits are Latin (ASCII), others correspond to context"
+            };
         }
 
+        @Override
         public void paint(Graphics g) {
-            Graphics2D g2d = (Graphics2D)g;
+            Graphics2D g2d = (Graphics2D) g;
 
             float x = 5;
             float y = 5;

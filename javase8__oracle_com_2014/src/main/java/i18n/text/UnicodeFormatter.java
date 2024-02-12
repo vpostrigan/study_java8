@@ -32,7 +32,7 @@ package i18n.text;
 
 public class UnicodeFormatter {
 
-    static public String byteToHex(byte b) {
+    public static String byteToHex(byte b) {
         // Returns hex String representation of byte b
         char hexDigit[] = {
                 '0', '1', '2', '3', '4', '5', '6', '7',
@@ -42,7 +42,7 @@ public class UnicodeFormatter {
         return new String(array);
     }
 
-    static public String charToHex(char c) {
+    public static String charToHex(char c) {
         // Returns hex String representation of char c
         byte hi = (byte) (c >>> 8);
         byte lo = (byte) (c & 0xff);

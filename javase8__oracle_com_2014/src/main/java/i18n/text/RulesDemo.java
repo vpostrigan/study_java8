@@ -93,3 +93,14 @@ public class RulesDemo {
     }
 
 }
+/*
+chalina
+curioso
+llama
+luz
+
+curioso
+chalina
+luz
+llama
+ */

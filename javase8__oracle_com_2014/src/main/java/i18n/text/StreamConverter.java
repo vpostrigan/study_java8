@@ -38,6 +38,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 
 public class StreamConverter {
 
@@ -45,7 +46,7 @@ public class StreamConverter {
 
         try {
             FileOutputStream fos = new FileOutputStream("test.txt");
-            Writer out = new OutputStreamWriter(fos, "UTF8");
+            Writer out = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
             out.write(str);
             out.close();
         } catch (IOException e) {
@@ -54,10 +55,10 @@ public class StreamConverter {
     }
 
     static String readInput() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         try {
             FileInputStream fis = new FileInputStream("test.txt");
-            InputStreamReader isr = new InputStreamReader(fis, "UTF8");
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
             Reader in = new BufferedReader(isr);
             int ch;
             while ((ch = in.read()) > -1) {

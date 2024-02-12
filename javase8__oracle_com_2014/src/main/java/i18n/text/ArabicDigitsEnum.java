@@ -30,10 +30,6 @@
  */
 package i18n.text;
 
-/**
- * This example displays ASCII digits, 0 through 9, as Arabit digits.
- */
-
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -41,6 +37,9 @@ import java.awt.font.*;
 import java.text.*;
 import java.util.HashMap;
 
+/**
+ * This example displays ASCII digits, 0 through 9, as Arabit digits.
+ */
 public class ArabicDigitsEnum extends Applet {
     ArabicDigitsEnumPanel panel;
 
@@ -54,11 +53,13 @@ public class ArabicDigitsEnum extends Applet {
         panel = new ArabicDigitsEnumPanel(fontname);
     }
 
+    @Override
     public void init() {
         setLayout(new BorderLayout());
         add("Center", panel);
     }
 
+    @Override
     public void destroy() {
         remove(panel);
     }
@@ -109,7 +110,7 @@ public class ArabicDigitsEnum extends Applet {
         }
 
         ArabicDigitsEnumPanel(String fontname) {
-            HashMap map = new HashMap();
+            HashMap map = new HashMap<>();
             Font font = new Font(fontname, Font.PLAIN, 60);
             map.put(TextAttribute.FONT, font);
             map.put(TextAttribute.NUMERIC_SHAPING, NumericShaper.getShaper(NumericShaper.Range.ARABIC));
@@ -117,6 +118,7 @@ public class ArabicDigitsEnum extends Applet {
             layout = new TextLayout(text, map, frc);
         }
 
+        @Override
         public void paint(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
             layout.draw(g2d, 10, 50);

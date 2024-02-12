@@ -87,8 +87,7 @@ public class BreakIteratorDemo {
         System.out.println(markers);
     }
 
-    static void formatLines(String target, int maxLength,
-                            Locale currentLocale) {
+    static void formatLines(String target, int maxLength, Locale currentLocale) {
 
         BreakIterator boundary = BreakIterator.getLineInstance(currentLocale);
         boundary.setText(target);
@@ -121,45 +120,33 @@ public class BreakIteratorDemo {
     }
 
     static void characterExamples() {
-
-        BreakIterator arCharIterator =
-                BreakIterator.getCharacterInstance(new Locale("ar", "SA"));
+        BreakIterator arCharIterator = BreakIterator.getCharacterInstance(new Locale("ar", "SA"));
         // Arabic word for "house"
-        String house = "\u0628" + "\u064e" + "\u064a" +
-                "\u0652" + "\u067a" + "\u064f";
+        String house = "\u0628" + "\u064e" + "\u064a" + "\u0652" + "\u067a" + "\u064f";
         listPositions(house, arCharIterator);
     }
 
     static void wordExamples() {
-
         Locale currentLocale = new Locale("en", "US");
-        BreakIterator wordIterator =
-                BreakIterator.getWordInstance(currentLocale);
-        String someText = "She stopped.  " +
-                "She said, \"Hello there,\" and then went on.";
+        BreakIterator wordIterator = BreakIterator.getWordInstance(currentLocale);
+        String someText = "She stopped.  " + "She said, \"Hello there,\" and then went on.";
         markBoundaries(someText, wordIterator);
         System.out.println();
         extractWords(someText, wordIterator);
     }
 
     static void sentenceExamples() {
-
         Locale currentLocale = new Locale("en", "US");
-        BreakIterator sentenceIterator =
-                BreakIterator.getSentenceInstance(currentLocale);
-        String someText = "She stopped.  " +
-                "She said, \"Hello there,\" and then went on.";
+        BreakIterator sentenceIterator = BreakIterator.getSentenceInstance(currentLocale);
+        String someText = "She stopped.  " + "She said, \"Hello there,\" and then went on.";
         markBoundaries(someText, sentenceIterator);
-        String variousText = "He's vanished!  " +
-                "What will we do?  It's up to us.";
+        String variousText = "He's vanished!  " + "What will we do?  It's up to us.";
         markBoundaries(variousText, sentenceIterator);
         String decimalText = "Please add 1.5 liters to the tank.";
         markBoundaries(decimalText, sentenceIterator);
-        String donneText = "\"No man is an island . . . " +
-                "every man . . . \"";
+        String donneText = "\"No man is an island . . . " + "every man . . . \"";
         markBoundaries(donneText, sentenceIterator);
-        String dogText = "My friend, Mr. Jones, has a new dog.  " +
-                "The dog's name is Spot.";
+        String dogText = "My friend, Mr. Jones, has a new dog.  " + "The dog's name is Spot.";
         markBoundaries(dogText, sentenceIterator);
     }
 
@@ -191,3 +178,48 @@ public class BreakIteratorDemo {
     }
 
 }
+/*
+0
+2
+4
+6
+
+She stopped.  She said, "Hello there," and then went on.
+^  ^^      ^^ ^  ^^   ^^^^    ^^    ^^^^  ^^   ^^   ^^ ^^
+
+She
+stopped
+She
+said
+Hello
+there
+and
+then
+went
+on
+
+She stopped.  She said, "Hello there," and then went on.
+^             ^                                         ^
+He's vanished!  What will we do?  It's up to us.
+^               ^                 ^             ^
+Please add 1.5 liters to the tank.
+^                                 ^
+"No man is an island . . . every man . . . "
+^                                    ^^^^^^ ^
+My friend, Mr. Jones, has a new dog.  The dog's name is Spot.
+^              ^                      ^                      ^
+
+She stopped.  She said, "Hello there," and then went on.
+^   ^         ^   ^     ^      ^       ^   ^    ^    ^  ^
+There are twenty-four hours in a day.
+^     ^   ^      ^    ^     ^  ^ ^   ^
+
+She said, "Hello there," and
+then went on down the
+street.  When she stopped to
+look at the fur coats in a
+shop window, her dog
+growled.  "Sorry Jake," she
+said.  "I didn't know you
+would take it personally."
+ */

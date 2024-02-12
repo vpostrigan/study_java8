@@ -39,11 +39,12 @@ import java.util.*;
 
 public class NormSample extends Applet {
     static final long serialVersionUID = 6607883013849198961L;
+
     JComboBox normalizationTemplate;
     JComboBox formComboBox;
     JComponent paintingComponent;
-    HashMap<String, Normalizer.Form> formValues = new HashMap<String, Normalizer.Form>();
-    HashMap<String, String> templateValues = new HashMap<String, String>();
+    HashMap<String, Normalizer.Form> formValues = new HashMap<>();
+    HashMap<String, String> templateValues = new HashMap<>();
 
     public static void main(String[] args) {
         //creating an applete for normalization
@@ -110,13 +111,11 @@ public class NormSample extends Applet {
             public void paint(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g;
 
-
                 g2.setFont(new Font("Serif", Font.PLAIN, 20));
                 g2.setColor(Color.BLACK);
                 g2.drawString("Original string:", 100, 80);
                 g2.drawString("Normalized string:", 100, 120);
                 g2.setFont(new Font("Serif", Font.BOLD, 24));
-
 
 //output of the original sample selected from the ComboBox 
 
@@ -141,16 +140,9 @@ public class NormSample extends Applet {
         controls.add(new Label("Normalization Template:"));
         controls.add(normalizationTemplate);
         add(controls);
-        formComboBox.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                paintingComponent.repaint();
-            }
-        });
+        formComboBox.addActionListener(e -> paintingComponent.repaint());
 
-        normalizationTemplate.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                paintingComponent.repaint();
-            }
-        });
+        normalizationTemplate.addActionListener(e -> paintingComponent.repaint());
     }
+
 }

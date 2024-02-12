@@ -30,7 +30,7 @@
  */
 package i18n.text;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 public class StringConverter {
 
@@ -48,20 +48,16 @@ public class StringConverter {
         System.out.println("original = " + original);
         System.out.println();
 
-        try {
-            byte[] utf8Bytes = original.getBytes("UTF8");
-            byte[] defaultBytes = original.getBytes();
+        byte[] utf8Bytes = original.getBytes(StandardCharsets.UTF_8);
+        byte[] defaultBytes = original.getBytes();
 
-            String roundTrip = new String(utf8Bytes, "UTF8");
-            System.out.println("roundTrip = " + roundTrip);
+        String roundTrip = new String(utf8Bytes, StandardCharsets.UTF_8);
+        System.out.println("roundTrip = " + roundTrip);
 
-            System.out.println();
-            printBytes(utf8Bytes, "utf8Bytes");
-            System.out.println();
-            printBytes(defaultBytes, "defaultBytes");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        System.out.println();
+        printBytes(utf8Bytes, "utf8Bytes");
+        System.out.println();
+        printBytes(defaultBytes, "defaultBytes");
     }
 
 }

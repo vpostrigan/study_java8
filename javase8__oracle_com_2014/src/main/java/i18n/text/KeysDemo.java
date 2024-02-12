@@ -58,7 +58,7 @@ public class KeysDemo {
         }
     }
 
-    static public void main(String[] args) {
+    public static void main(String[] args) {
 
         Collator enUSCollator = Collator.getInstance(new Locale("en", "US"));
 
@@ -80,3 +80,9 @@ public class KeysDemo {
     }
 
 }
+/*
+apricot
+grape
+lemon
+peach
+ */

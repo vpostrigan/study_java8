@@ -142,11 +142,9 @@ public class BidiTextComponentDemo extends JFrame {
             displaySelectionInfo(e.getDot(), e.getMark());
         }
 
-        // This method can be invoked from any thread. It
-        // invokes the setText and modelToView methods, which
-        // must run on the event dispatch thread. We use
-        // invokeLater to schedule the code for execution
-        // on the event dispatch thread.
+        // This method can be invoked from any thread.
+        // It invokes the setText and modelToView methods, which must run on the event dispatch thread.
+        // We use invokeLater to schedule the code for execution on the event dispatch thread.
         protected void displaySelectionInfo(final int dot, final int mark) {
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
@@ -319,10 +317,9 @@ public class BidiTextComponentDemo extends JFrame {
         return attrs;
     }
 
-    // The following two methods allow us to find an
-    // action provided by the editor kit by its name.
+    // The following two methods allow us to find an action provided by the editor kit by its name.
     private HashMap<Object, Action> createActionTable(JTextComponent textComponent) {
-        HashMap<Object, Action> actions = new HashMap<Object, Action>();
+        HashMap<Object, Action> actions = new HashMap<>();
         Action[] actionsArray = textComponent.getActions();
         for (int i = 0; i < actionsArray.length; i++) {
             Action a = actionsArray[i];
@@ -392,8 +389,8 @@ public class BidiTextComponentDemo extends JFrame {
     }
 
     /**
-     * Create the GUI and show it. For thread safety, this method should be
-     * invoked from the event dispatch thread.
+     * Create the GUI and show it.
+     * For thread safety, this method should be invoked from the event dispatch thread.
      */
     private static void createAndShowGUI() {
         // Create and set up the window.
@@ -415,4 +412,5 @@ public class BidiTextComponentDemo extends JFrame {
             createAndShowGUI();
         });
     }
+
 }
