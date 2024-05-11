@@ -17,10 +17,12 @@ public class Course02Callbacks {
         @Override
         public void start() {
             System.out.println("BasicVerticle started");
-            vertx.createNetServer().connectHandler(socket -> {
-                // container.logger().info("socket connected");
-                socket.handler(new User(this));
-            }).listen(8080);
+            vertx.createNetServer()
+                    .connectHandler(socket -> {
+                        // container.logger().info("socket connected");
+                        socket.handler(new User(this));
+                    })
+                    .listen(8080);
             // container.logger().info("ChatVerticle started");
         }
     }
