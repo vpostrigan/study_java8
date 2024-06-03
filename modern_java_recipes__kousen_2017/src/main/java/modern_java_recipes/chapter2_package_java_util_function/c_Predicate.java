@@ -1,6 +1,9 @@
 package modern_java_recipes.chapter2_package_java_util_function;
 
+import java.util.List;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -39,6 +42,14 @@ public class c_Predicate {
         // Отрицание
         assert "Kaylee, Mal, Shepherd Book, Wash, Zoё" ==
                 p.getNamesSatisfyingCondition(LENGTH_FIVE.negate(), names);
+
+        // //
+
+        // example, violates stateless from documentation
+        List<String> list = Arrays.asList("Java", "Scala", "Groovy", "Groovy", "Scala", "Scala", "test", "test", "test", "test");
+        list.stream().filter(distinct(3)).forEach(System.out::println);
+        // Scala
+        // test
     }
 
     public String getNamesOfLength(int length, String... names) {
@@ -59,5 +70,9 @@ public class c_Predicate {
                 .collect(Collectors.joining(", "));
     }
 
-}
+    public static <T> Predicate<T> distinct(long atLeast) {
+        Map<T, Long> map = new ConcurrentHashMap<>();
+        return t -> map.merge(t, 1L, Long::sum) == atLeast;
+    }
 
+}

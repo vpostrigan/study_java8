@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.java_ocr__2014</groupId>
+    <artifactId>java_ocr__2014</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.sourceforge.javaocr</groupId>
+            <artifactId>javaocr-core</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.javaocr.plugins</groupId>
+            <artifactId>javaocr-plugin-awt</artifactId>
+            <version>1.0</version>
+        </dependency>
+<!--
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-ocr</artifactId>
+            <version>24.1.0</version>
+        </dependency>
+-->
+        <dependency>
+            <groupId>com.github.axet</groupId>
+            <artifactId>lookup</artifactId>
+            <version>0.2.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+    </dependencies>
+
+</project>

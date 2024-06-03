@@ -1,0 +1,10 @@
+https://github.com/cluePrints/Jaba-OCR/find/master
+http://stackoverflow.com/questions/25539866/is-it-possible-to-convert-text-images-into-a-text-file-java
+http://sourceforge.net/p/javaocr/source/ci/master/tree/plugins/awt/src/main/java/net/sourceforge/javaocr/ocrPlugins/OCRDemo/OCRScannerDemo.java#l169
+http://roncemer.com/software-development/java-ocr/
+
+https://github.com/aspose-ocr/Aspose.OCR-for-Java
+
+
+https://github.com/axet/lookup
+https://github.com/iamshajeer/lookup
