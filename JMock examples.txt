@@ -1,0 +1,133 @@
+JMock examples
+Here is the mock object example using JMock.  Of the three mocking frameworks that I've used now (EasyMock, Mockito, and JMock), I think JMock is my favorite.
+
+ 1 package examples.jmock;
+ 2
+ 3 import org.jmock.Expectations;
+ 4 import org.jmock.Mockery;
+ 5 import org.jmock.integration.junit4.JMock;
+ 6 import org.jmock.integration.junit4.JUnit4Mockery;
+ 7 import org.junit.Before;
+ 8 import org.junit.Test;
+ 9 import org.junit.runner.RunWith;
+10
+11 import java.math.BigDecimal;
+12
+13 /**
+14  * @author Christopher Bartling, Pintail Consulting LLC
+15  * @since Sep 4, 2008 12:08:38 AM
+16  */
+17 @RunWith(JMock.class)
+18 public class PricingServiceTests {
+19
+20     private static final String SKU = "3283947";
+21     private static final String BAD_SKU = "-9999993434";
+22
+23     private PricingService systemUnderTest;
+24     private DataAccess mockedDependency;
+25     private Mockery mockingContext;
+26
+27     @Before
+28     public void doBeforeEachTestCase() {
+29         mockingContext = new JUnit4Mockery();
+30         systemUnderTest = new PricingServiceImpl();
+31         mockedDependency = mockingContext.mock(DataAccess.class);
+32         systemUnderTest.setDataAccess(mockedDependency);
+33     }
+34
+35     @Test
+36     public void getPrice() throws SkuNotFoundException {
+37         mockingContext.checking(new Expectations() {
+38             {
+39                 one(mockedDependency).getPriceBySku(SKU);
+40                 will(returnValue(new BigDecimal(100)));
+41             }
+42         });
+43         final BigDecimal testPrice = systemUnderTest.getPrice(SKU);
+44     }
+45
+46     @Test(expected = SkuNotFoundException.class)
+47     public void getPriceNonExistentSkuThrowsException() throws SkuNotFoundException {
+48         mockingContext.checking(new Expectations() {
+49             {
+50                 one(mockedDependency).getPriceBySku(BAD_SKU);
+51                 will(returnValue(null));
+52             }
+53         });
+54         final BigDecimal price = systemUnderTest.getPrice(BAD_SKU);
+55     }
+56
+57     @Test(expected = RuntimeException.class)
+58     public void getPriceDataAccessThrowsRuntimeException() throws SkuNotFoundException {
+59         mockingContext.checking(new Expectations() {
+60             {
+61                 allowing(mockedDependency).getPriceBySku(with(any(String.class)));
+62                 will(throwException(new RuntimeException("Fatal data access exception.")));
+63             }
+64         });
+65         final BigDecimal price = systemUnderTest.getPrice(SKU);
+66     }
+67
+68 }
+
+
+
+
+ 1 package examples.jmock;
+ 2
+ 3 import java.math.BigDecimal;
+ 4
+ 5 /**
+ 6  * @author Christopher Bartling, Pintail Consulting LLC
+ 7  * @since Sep 4, 2008 12:10:20 AM
+ 8  */
+ 9 public interface PricingService {
+10
+11     void setDataAccess(DataAccess dataAccess);
+12
+13     BigDecimal getPrice(String sku) throws SkuNotFoundException;
+14 }
+
+
+
+
+ 1 package examples.jmock;
+ 2
+ 3 import java.math.BigDecimal;
+ 4
+ 5 /**
+ 6  * @author Christopher Bartling, Pintail Consulting LLC
+ 7  * @since Sep 4, 2008 12:10:31 AM
+ 8  */
+ 9 public interface DataAccess {
+10
+11     BigDecimal getPriceBySku(String sku);
+12 }
+
+
+
+
+ 1 package examples.jmock;
+ 2
+ 3 import java.math.BigDecimal;
+ 4
+ 5 /**
+ 6  * @author Christopher Bartling, Pintail Consulting LLC
+ 7  * @since Sep 4, 2008 12:10:40 AM
+ 8  */
+ 9 public class PricingServiceImpl implements PricingService {
+10
+11     private DataAccess dataAccess;
+12
+13     public void setDataAccess(DataAccess dataAccess) {
+14         this.dataAccess = dataAccess;
+15     }
+16
+17     public BigDecimal getPrice(String sku) throws SkuNotFoundException {
+18         final BigDecimal price = this.dataAccess.getPriceBySku(sku);
+19         if (price == null) {
+20             throw new SkuNotFoundException();
+21         }
+22         return price;
+23     }
+24 }

@@ -28,33 +28,10 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package java.concepts;
+package java0.data;
 
-class Bicycle {
-    int cadence = 0;
-    int speed = 0;
-    int gear = 1;
-
-    void changeCadence(int newValue) {
-        cadence = newValue;
-    }
-
-    void changeGear(int newValue) {
-        gear = newValue;
-    }
-
-    void speedUp(int increment) {
-        speed = speed + increment;
-    }
-
-    void applyBrakes(int decrement) {
-        speed = speed - decrement;
-    }
-
-    void printStates() {
-        System.out.println("cadence:" +
-                cadence + " speed:" +
-                speed + " gear:" + gear);
-    }
-
+public class SimpleRectangle {
+    public int width = 0;
+    public int height = 0;
+    public SimplePoint origin = new SimplePoint();
 }
