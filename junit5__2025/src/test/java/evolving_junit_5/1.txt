@@ -1,0 +1,4 @@
++ https://www.youtube.com/watch?v=EQPr7OhG768
+IntelliJ IDEA Conf 2022 | Evolving JUnit 5
+
+https://www.jug.ch/events/slides/230412_junit5-intro.pdf
